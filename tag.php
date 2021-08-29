@@ -17,13 +17,14 @@
                                     <h4 class="title"><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h4>
                                     <div class="meta-details">
                                         <ul>
-                                            <li><a href="<?php echo get_tag_link(get_the_tags()[0]->term_id) ?>"><i
+                                            <li><a href="<?php ;?>"><i
                                                             class="lni lni-tag"></i><?php echo get_the_tags()[0]->name; ?>
                                                 </a></li>
                                             <li><a href="#"><i class="lni lni-calendar"></i> 12-09-2023</a></li>
                                             <li><a href="#"><i class="lni lni-eye"></i> 55</a></li>
                                         </ul>
                                     </div>
+
 									<?php echo wp_trim_words( get_the_content(), 20, '' ) ?>
                                     <div class="button">
                                         <a href="<?php the_permalink(); ?>"
