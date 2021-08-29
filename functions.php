@@ -1,4 +1,6 @@
 <?php
+include_once 'inc/bootstrap-navwalker.php';
+include_once 'inc/svg-support.php';
 define('VERSION',wp_get_theme()->get( 'Version' ));
 if ( ! function_exists( 'jblog_theme_setup' ) ) :
 	function jblog_theme_setup() {

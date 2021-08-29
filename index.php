@@ -1,6 +1,5 @@
 <?php get_header() ?>
 
-
 <section class="section latest-news-area blog-list">
     <div class="container">
         <div class="row">
