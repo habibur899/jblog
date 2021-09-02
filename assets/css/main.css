@@ -1072,21 +1072,21 @@ ul, ol {
     text-align: left;
 }
 
-.pagination .pagination-list {
+.pagination {
     display: inline-block;
     overflow: hidden;
 }
 
-.pagination .pagination-list li {
+.pagination a {
     margin-right: 5px;
     display: inline-block;
 }
 
-.pagination .pagination-list li:last-child {
+.pagination a:last-child {
     margin-right: 0;
 }
 
-.pagination .pagination-list li a {
+.pagination a,.pagination span {
     background: #fff;
     color: #081828;
     font-weight: 500;
@@ -1100,13 +1100,14 @@ ul, ol {
     border: 1px solid #eee;
 }
 
-.pagination .pagination-list li.active a, .pagination .pagination-list li:hover a {
+.pagination span.current, .pagination span:hover {
     background: #2042e3;
     color: #fff;
     border-color: transparent;
+    margin-right: 5px;
 }
 
-.pagination .pagination-list li a i {
+.pagination a i {
     font-size: 13px;
 }
 
@@ -1115,7 +1116,7 @@ ul, ol {
     text-align: center;
 }
 
-.button .btn {
+.button .btn ,.comment-submit{
     display: inline-block;
     text-transform: capitalize;
     font-size: 14px;
@@ -1129,7 +1130,7 @@ ul, ol {
     border-radius: 4px;
 }
 
-.button .btn:hover {
+.button .btn:hover,.comment-submit:hover {
     background-color: #081828;
     color: #fff;
     -webkit-box-shadow: 0 1rem 3rem rgba(35, 38, 45, .15) !important;
@@ -3173,10 +3174,10 @@ blockquote .shape {
 
 .comment-reply-title::before {
     position: absolute;
-    left: 0;
+    left: 20%;
     top: 50%;
     height: 1px;
-    width: 100%;
+    width: 80%;
     background-color: #eee;
     content: '';
     z-index: -1;

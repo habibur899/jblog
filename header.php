@@ -58,7 +58,7 @@
 </header>
 
 
-<div class="breadcrumbs overlay">
+<!--<div class="breadcrumbs overlay">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -75,4 +75,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->

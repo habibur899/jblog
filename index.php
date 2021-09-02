@@ -9,19 +9,21 @@
                         <div class="col-lg-6 col-12">
                             <div class="single-news wow fadeInUp" data-wow-delay=".3s">
                                 <div class="image">
-                                    <img class="thumb"
-                                         src="<?php echo get_template_directory_uri() ?>/assets/images/blog/blog1.jpg"
-                                         alt="#">
+									<?php the_post_thumbnail( 'large', array( 'class' => 'thumb' ) ); ?>
                                 </div>
                                 <div class="content-body">
                                     <h4 class="title"><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h4>
                                     <div class="meta-details">
                                         <ul>
-                                            <li><a href="<?php echo get_tag_link(get_the_tags()[0]->term_id) ?>"><i
+                                            <li><a href="<?php echo get_tag_link( get_the_tags()[0]->term_id ) ?>"><i
                                                             class="lni lni-tag"></i><?php echo get_the_tags()[0]->name; ?>
                                                 </a></li>
-                                            <li><a href="#"><i class="lni lni-calendar"></i> 12-09-2023</a></li>
-                                            <li><a href="#"><i class="lni lni-eye"></i> 55</a></li>
+                                            <li><a href="<?php echo esc_url( get_day_link( false, false, false ) ); ?>"><i
+                                                            class="lni lni-calendar"></i><?php echo get_the_date( 'm-d-Y' ) ?>
+                                                </a></li>
+                                            <li><a href="<?php the_permalink(); ?>"><i
+                                                            class="lni lni-eye"></i> <?php echo getPostViews( get_the_ID() ); ?>
+                                                </a></li>
                                         </ul>
                                     </div>
 									<?php echo wp_trim_words( get_the_content(), 20, '' ) ?>
@@ -37,12 +39,12 @@
 
                 <div class="pagination center">
                     <ul class="pagination-list">
-                        <li><a href="#"><i class="lni lni-chevron-left"></i></a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#"><i class="lni lni-chevron-right"></i></a></li>
+						<?php echo get_the_posts_pagination( array(
+							'prev_text'          => '<i class="lni lni-chevron-left"></i>',
+							'next_text'          => '<i class="lni lni-chevron-right"></i>',
+							'screen_reader_text' => ' ',
+							'mid_size'           => 4
+						) ); ?>
                     </ul>
                 </div>
 
