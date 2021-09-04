@@ -8,7 +8,19 @@
                     <div class="sidebar mb-3">
                         <div class="widget">
                             <h2><?php esc_html_e( 'Date Name: ', 'jblog' ); ?><span
-                                        class="highlight-color"><?php single_month_title(' ') ?></span></h2>
+                                        class="highlight-color"><?php
+
+                                    if(is_month()){
+                                        $month = get_query_var('monthnum');
+                                        $monthdate = DateTime::createFromFormat("!m",$month);
+                                        esc_html_e($monthdate->format('F'));
+                                    }elseif (is_year()){
+                                        esc_html_e(get_query_var("year"));
+                                    }elseif (is_day()){
+                                        printf('%s/%s/%s',get_query_var('day'),get_query_var('monthnum'),get_query_var('year'));
+                                    }
+
+                                    ?></span></h2>
                         </div>
                     </div>
 					<?php if ( ! have_posts() ) {
