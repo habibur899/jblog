@@ -7,8 +7,8 @@
                 <div class="row">
                     <div class="sidebar mb-3">
                         <div class="widget">
-                            <h2><?php esc_html_e( 'Date Name: ', 'jblog' ); ?><span
-                                        class="highlight-color"><?php single_month_title(' ') ?></span></h2>
+                            <h2><?php esc_html_e( 'You Search For: ', 'jblog' ); ?><span
+                                        class="highlight-color"><?php the_search_query(); ?></span></h2>
                         </div>
                     </div>
 					<?php if ( ! have_posts() ) {
@@ -46,6 +46,7 @@
                                                                 class="lni lni-tag"></i><?php echo get_the_tags()[0]->name; ?>
                                                     </a></li>
 	                                        <?php endif; ?>
+
                                             <li><a href="<?php echo esc_url( get_day_link( false, false, false ) ); ?>"><i
                                                             class="lni lni-calendar"></i><?php echo get_the_date( 'm-d-Y' ) ?>
                                                 </a></li>

@@ -7,8 +7,8 @@
                 <div class="row">
                     <div class="sidebar mb-3">
                         <div class="widget">
-                            <h2><?php esc_html_e( 'Date Name: ', 'jblog' ); ?><span
-                                        class="highlight-color"><?php single_month_title(' ') ?></span></h2>
+                            <h2><?php esc_html_e( 'Category Name: ', 'jblog' ); ?><span
+                                        class="highlight-color"><?php single_cat_title() ?></span></h2>
                         </div>
                     </div>
 					<?php if ( ! have_posts() ) {
