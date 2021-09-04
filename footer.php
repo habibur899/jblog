@@ -45,8 +45,8 @@
             <div class="inner">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-12">
-						<?php if ( is_active_sidebar( 'footer-bottom-sidebar-one' ) ) {
-							dynamic_sidebar( 'footer-bottom-sidebar-one' );
+						<?php if ( is_active_sidebar( 'copyright' ) ) {
+							dynamic_sidebar( 'copyright' );
 						} ?>
                     </div>
                     <div class="col-lg-6 col-md-6 col-12">

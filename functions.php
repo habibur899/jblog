@@ -9,6 +9,8 @@ include_once 'inc/tgm-config.php';
 define( 'VERSION', wp_get_theme()->get( 'Version' ) );
 if ( ! function_exists( 'jblog_theme_setup' ) ) :
 	function jblog_theme_setup() {
+		//Disable Widgets Block Editor
+		remove_theme_support( 'widgets-block-editor' );
 		//load textdomain
 		load_theme_textdomain( 'jblog', get_template_directory() . '/languages' );
 		//feed
@@ -25,7 +27,7 @@ if ( ! function_exists( 'jblog_theme_setup' ) ) :
 
 		//Image Size
 		//Single Post Thumbnails
-		add_image_size('post-image', 1024, 477, false );
+		add_image_size('thumb-image', 416, 312, false );
 
 		//html5 support
 		add_theme_support(
@@ -120,3 +122,4 @@ function custom_document_title_separator( $sep ) {
 	return '||';
 }
 add_filter( 'document_title_separator', 'custom_document_title_separator', 10, 1 );
+

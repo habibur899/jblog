@@ -9,7 +9,7 @@
                         <div class="col-lg-6 col-12">
                             <div class="single-news wow fadeInUp" data-wow-delay=".3s">
                                 <div class="image">
-									<?php the_post_thumbnail( 'large', array( 'class' => 'thumb' ) ); ?>
+									<?php the_post_thumbnail( 'thumb-image', array( 'class' => 'thumb' ) ); ?>
                                 </div>
                                 <div class="content-body">
                                     <h4 class="title"><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h4>
