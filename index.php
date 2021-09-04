@@ -35,18 +35,17 @@
                             </div>
                         </div>
 					<?php endwhile;endif; ?>
+                    <div class="pagination center">
+		                <?php echo get_the_posts_pagination( array(
+			                'prev_text'          => '<i class="lni lni-chevron-left"></i>',
+			                'next_text'          => '<i class="lni lni-chevron-right"></i>',
+			                'screen_reader_text' => ' ',
+			                'mid_size'           => 4
+		                ) ); ?>
+                    </div>
                 </div>
 
-                <div class="pagination center">
-                    <ul class="pagination-list">
-						<?php echo get_the_posts_pagination( array(
-							'prev_text'          => '<i class="lni lni-chevron-left"></i>',
-							'next_text'          => '<i class="lni lni-chevron-right"></i>',
-							'screen_reader_text' => ' ',
-							'mid_size'           => 4
-						) ); ?>
-                    </ul>
-                </div>
+
 
             </div>
             <aside class="col-lg-4 col-md-5 col-12">

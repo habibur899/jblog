@@ -37,14 +37,16 @@
                             <span class="toggler-icon"></span>
                             <span class="toggler-icon"></span>
                         </button>
-                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-							<?php wp_nav_menu( array(
-								'menu_class'     => 'navbar-nav ml-auto',
-								'menu_id'        => 'nav',
-								'walker'         => new WP_Bootstrap_Navwalker(),
-								'theme_location' => 'primary_menu',
-							) ) ?>
-                        </div>
+
+						<?php wp_nav_menu( array(
+							'container_class' => 'collapse navbar-collapse sub-menu-bar',
+							'container_id'    => 'navbarSupportedContent',
+							'menu_class'      => 'navbar-nav ml-auto',
+							'menu_id'         => 'nav',
+							'walker'          => new WP_Bootstrap_Navwalker(),
+							'theme_location'  => 'primary_menu',
+						) ) ?>
+
 
                     </nav>
 

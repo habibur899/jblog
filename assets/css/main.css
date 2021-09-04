@@ -1082,10 +1082,6 @@ ul, ol {
     display: inline-block;
 }
 
-.pagination a:last-child {
-    margin-right: 0;
-}
-
 .pagination a, .pagination span {
     background: #fff;
     color: #081828;
@@ -1100,7 +1096,7 @@ ul, ol {
     border: 1px solid #eee;
 }
 
-.pagination span.current, .pagination span:hover {
+.pagination span.current, .pagination span:hover, .pagination a:hover {
     background: #2042e3;
     color: #fff;
     border-color: transparent;
@@ -3469,7 +3465,7 @@ ul
     font-weight: 500;
     margin-bottom: 12px;
     line-height: 1.5;
-    color:#081828;
+    color: #081828;
 }
 
 .sidebar .widget.widget_recent_entries ul li a:hover {
@@ -6891,7 +6887,7 @@ ul
         margin-top: 30px;
     }
 
-    .pagination .pagination-list li {
+    nav.pagination {
         margin-top: 10px;
     }
 
