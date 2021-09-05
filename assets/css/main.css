@@ -3534,7 +3534,7 @@ ul
     padding-bottom: 30px;
 }
 
-.tagcloud > a {
+.tagcloud > a, .tags > a {
     display: inline-flex;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
@@ -3553,7 +3553,7 @@ ul
     border-radius: 4px;
 }
 
-.tagcloud > a:hover {
+.tagcloud > a:hover,.tags > a:hover {
     background-color: #2042e3;
     color: #fff;
     border-color: transparent;

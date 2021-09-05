@@ -20,108 +20,126 @@
 if ( post_password_required() ) {
 	return;
 }
-
-$jblog_comment_count = get_comments_number();
 ?>
-
-<div id="comments"
-     class="comments-area default-max-width <?php echo get_option( 'show_avatars' ) ? 'show-avatars' : ''; ?>">
-
+<div class="post-comments">
+    <h3 class="comment-title"><span>3 comments on this post</span></h3>
+    <ul class="comments-list">
+        <li>
+            <div class="comment-img">
+                <img src="assets/images/blog/comment1.png" class="rounded-circle" alt="img">
+            </div>
+            <div class="comment-desc">
+                <div class="desc-top">
+                    <h6>Rosalina Kelian</h6>
+                    <span class="date">19th May 2023</span>
+                    <a href="#" class="reply-link"><i class="lni lni-reply"></i>Reply</a>
+                </div>
+                <p>
+                    Donec aliquam ex ut odio dictum, ut consequat leo interdum. Aenean nunc
+                    ipsum, blandit eu enim sed, facilisis convallis orci. Etiam commodo
+                    lectus
+                    quis vulputate tincidunt. Mauris tristique velit eu magna maximus
+                    condimentum.
+                </p>
+            </div>
+        </li>
+        <li class="children">
+            <div class="comment-img">
+                <img src="assets/images/blog/comment2.png" class="rounded-circle" alt="img">
+            </div>
+            <div class="comment-desc">
+                <div class="desc-top">
+                    <h6>Arista Williamson <span class="saved"><i
+                                    class="lni lni-bookmark"></i></span></h6>
+                    <span class="date">15th May 2023</span>
+                    <a href="#" class="reply-link"><i class="lni lni-reply"></i>Reply</a>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim.
+                </p>
+            </div>
+        </li>
+        <li>
+            <div class="comment-img">
+                <img src="assets/images/blog/comment3.png" class="rounded-circle" alt="img">
+            </div>
+            <div class="comment-desc">
+                <div class="desc-top">
+                    <h6>Arista Williamson</h6>
+                    <span class="date">12th May 2023</span>
+                    <a href="#" class="reply-link"><i class="lni lni-reply"></i>Reply</a>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                    veniam.
+                </p>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="comment-form">
 	<?php
-	if ( have_comments() ) :
-		;
-		?>
-        <h2 class="comments-title">
-			<?php if ( '1' === $jblog_comment_count ) : ?>
-				<?php esc_html_e( '1 comment', 'jblog' ); ?>
-			<?php else : ?>
-				<?php
-				printf(
-				/* translators: %s: Comment count number. */
-					esc_html( _nx( '%s comment', '%s comments', $jblog_comment_count, 'Comments title', 'jblog' ) ),
-					esc_html( number_format_i18n( $jblog_comment_count ) )
-				);
-				?>
-			<?php endif; ?>
-        </h2><!-- .comments-title -->
 
-        <ul class="comment-list">
-			<?php
-			wp_list_comments(
-				array(
-					'avatar_size' => 60,
-					'style'       => 'ul',
-					'short_ping'  => true,
-					'callback'    => 'jblog_comment'
-				)
-			);
-			?>
-        </ul><!-- .comment-list -->
+	$jblog_comment_fields            = array();
+	$jblog_comment_fields['author']  = <<<EOD
+        <div class="row">
+        <div class="error-message alert alert-danger" style="display:none">Field Cannot Be Empty</div>
+        <div class="success-message alert alert-success" style="display:none">Comment Successful</div>
+            <div class="col-lg-6 col-12">
+                <div class="form-box form-group">
+                    <input type="text" name="author" id="author" class="form-control form-control-custom"
+                           placeholder="Your Name*" required="required"/>
+                </div>
+            </div>
+EOD;
+	$jblog_comment_fields['email']   = <<<EOD
+        <div class="col-lg-6 col-12">
+            <div class="form-box form-group">
+                <input type="email" name="email" id="email" class="form-control form-control-custom"
+                       placeholder="Your Email*" required="required"/>
+            </div>
+        </div>
+EOD;
+	$jblog_comment_fields['url']     = <<<EOD
+        <div class="col-12">
+            <div class="form-box form-group">
+                <input type="url" name="url" id="url" class="form-control form-control-custom"
+                       placeholder="Your Website"/>
+            </div>
+        </div>
+EOD;
+	$jblog_comment_field             = <<<EOD
+        <div class="col-12">
+            <div class="form-box form-group">
+                <textarea name="comment" id="comment" rows="6" class="form-control form-control-custom"
+                          placeholder="Your Comments*" required="required"></textarea>
+            </div>
+        </div>
+EOD;
+	$jblog_comment_submit_button     = <<<EOD
+            <div class="col-12">
+                <div class="button">
+                    <button type="submit" class="btn mouse-dir white-bg">Post Comment <span
+                                class="dir-part"></span></button>
+                </div>
+            </div>
+        </div>
+EOD;
+	$jblog_comment_fields['cookies'] = ' ';
 
-		<?php
-		the_comments_pagination(
-			array(
-				'before_page_number' => esc_html__( 'Page', 'jblog' ) . ' ',
-				'mid_size'           => 0,
-				'prev_text'          => esc_html__( 'Older comments', 'jblog' ),
-				'next_text'          => esc_html__( 'Newer comments', 'jblog' ),
-			)
-		);
-		?>
+	$jblog_comment_form_arguments = array(
+		'title_reply'          => __( 'Leave a comment', 'jblog' ),
+		'fields'               => $jblog_comment_fields,
+		'comment_field'        => $jblog_comment_field,
+		'submit_button'        => $jblog_comment_submit_button,
+		'comment_notes_before' => ' ',
+		'class_form'           => ' ',
+		'title_reply_before'   => '<h3 class="comment-reply-title"><span>',
+		'title_reply_after'    => '</span></h3>',
 
-		<?php if ( ! comments_open() ) : ?>
-        <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'jblog' ); ?></p>
-	<?php endif; ?>
-	<?php endif; ?>
-
-	<?php
-	$commenter = wp_get_current_commenter();
-	if ( ! isset( $args['format'] ) ) {
-		$args['format'] = current_theme_supports( 'html5', 'comment-form' ) ? 'html5' : 'xhtml';
-	}
-	$req      = get_option( 'require_name_email' );
-	$aria_req = ( $req ? " aria-required='true'" : '' );
-	$html_req = ( $req ? " required='required'" : '' );
-	$html5    = 'html5' === $args['format'];
-
-	$comments_args = array(
-		// redefine your own textarea (the comment body)
-		'comment_field'       => '<div class="form-box form-group">
-		<textarea class="form-control form-control-custom" id="comment" name="comment" aria-required="true" placeholder="' . esc_attr__( "Your Comments", "text-domain" ) . '" rows="8" cols="37" wrap="hard"></textarea></div>',
-		'label_submit'        => esc_html__( 'POST A COMMENT', 'jblog' ),
-		'class_submit'        => 'btn comment-submit',
-		'title_reply'         => esc_html__( 'ADD COMMENT', 'jblog' ),
-		'title_reply_before'  => '<div class="msg_form"><h5 id="reply-title" class="comment-reply-title">',
-		'title_reply_after'   => '</h5><div>',
-		'cancel_reply_before' => '',
-		'cancel_reply_after'  => '',
-		'cancel_reply_link'   => esc_html__( 'Cancel reply' ),
-
-
-		'fields' => apply_filters( 'comment_form_default_fields', array(
-			'author' => sprintf(
-				'<div class="form-box form-group">%s</div>',
-
-				sprintf(
-					'<input placeholder="Your Name" class="form-control form-control-custom" id="author" name="author" type="text" value="%s" size="30" maxlength="245"%s />',
-					esc_attr( $commenter['comment_author'] ),
-					$html_req
-				)
-			),
-			'email'  => sprintf(
-				'<p class="form-box form-group">%s</p>',
-
-				sprintf(
-					'<input class="form-control form-control-custom" placeholder="Your Email" id="email" name="email" %s value="%s" size="30" maxlength="100" aria-describedby="email-notes"%s />',
-					( $html5 ? 'type="email"' : 'type="text"' ),
-					esc_attr( $commenter['comment_author_email'] ),
-					$html_req
-				)
-			),
-		),
-		)
-	);
-	comment_form( $comments_args );
+	)
 	?>
-
-</div><!-- #comments -->
+	<?php comment_form( $jblog_comment_form_arguments ); ?>
+</div>
