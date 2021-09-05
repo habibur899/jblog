@@ -82,15 +82,26 @@ if ( post_password_required() ) {
 <div class="comment-form">
 	<?php
 
+	//Text Translate
+	$jblog_author_placeholder  = __( 'Your Name*', 'jblog' );
+	$jblog_email_placeholder   = __( 'Your Email*', 'jblog' );
+	$jblog_url_placeholder     = __( 'Your Website*', 'jblog' );
+	$jblog_comment_placeholder = __( 'Your Comments*', 'jblog' );
+	$jblog_submit              = __( 'Post Comment', 'jblog' );
+	$jblog_error_message       = __( 'Field Cannot Be Empty', 'jblog' );
+	$jblog_success_message     = __( 'Comment Successful', 'jblog' );
+
 	$jblog_comment_fields            = array();
 	$jblog_comment_fields['author']  = <<<EOD
         <div class="row">
-        <div class="error-message alert alert-danger" style="display:none">Field Cannot Be Empty</div>
-        <div class="success-message alert alert-success" style="display:none">Comment Successful</div>
+        <div class="error-message alert alert-danger"
+             style="display:none">{$jblog_error_message}</div>
+        <div class="success-message alert alert-success"
+             style="display:none">{$jblog_success_message}</div>
             <div class="col-lg-6 col-12">
                 <div class="form-box form-group">
                     <input type="text" name="author" id="author" class="form-control form-control-custom"
-                           placeholder="Your Name*" required="required"/>
+                           placeholder="{$jblog_author_placeholder}" required="required"/>
                 </div>
             </div>
 EOD;
@@ -98,7 +109,7 @@ EOD;
         <div class="col-lg-6 col-12">
             <div class="form-box form-group">
                 <input type="email" name="email" id="email" class="form-control form-control-custom"
-                       placeholder="Your Email*" required="required"/>
+                       placeholder="{$jblog_email_placeholder}" required="required"/>
             </div>
         </div>
 EOD;
@@ -106,7 +117,7 @@ EOD;
         <div class="col-12">
             <div class="form-box form-group">
                 <input type="url" name="url" id="url" class="form-control form-control-custom"
-                       placeholder="Your Website"/>
+                       placeholder="{$jblog_url_placeholder}"/>
             </div>
         </div>
 EOD;
@@ -114,14 +125,14 @@ EOD;
         <div class="col-12">
             <div class="form-box form-group">
                 <textarea name="comment" id="comment" rows="6" class="form-control form-control-custom"
-                          placeholder="Your Comments*" required="required"></textarea>
+                          placeholder="{$jblog_comment_placeholder}" required="required"></textarea>
             </div>
         </div>
 EOD;
 	$jblog_comment_submit_button     = <<<EOD
             <div class="col-12">
                 <div class="button">
-                    <button type="submit" class="btn mouse-dir white-bg">Post Comment <span
+                    <button type="submit" class="btn mouse-dir white-bg">{$jblog_submit} <span
                                 class="dir-part"></span></button>
                 </div>
             </div>
