@@ -2,9 +2,9 @@
 include_once 'inc/bootstrap-navwalker.php';
 include_once 'inc/svg-support.php';
 include_once 'inc/postview-count.php';
-include_once 'inc/custom-comments.php';
 include_once 'inc/sidebar-register.php';
 include_once 'inc/tgm-config.php';
+include_once 'inc/comment-listing.php';
 
 define( 'VERSION', wp_get_theme()->get( 'Version' ) );
 if ( ! function_exists( 'jblog_theme_setup' ) ) :
@@ -27,7 +27,7 @@ if ( ! function_exists( 'jblog_theme_setup' ) ) :
 
 		//Image Size
 		//Single Post Thumbnails
-		add_image_size('thumb-image', 416, 312, false );
+		add_image_size( 'thumb-image', 416, 312, false );
 
 		//html5 support
 		add_theme_support(
@@ -94,7 +94,7 @@ function jblog_assets() {
 	wp_enqueue_style( 'main-css', get_template_directory_uri() . '/assets/css/main.css', array(), VERSION );
 	wp_enqueue_style( 'style-css', get_stylesheet_uri(), array(), VERSION );
 	// Threaded comment reply styles.
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+	if ( is_single() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 	//js
@@ -103,24 +103,18 @@ function jblog_assets() {
 	wp_enqueue_script( 'tiny-slider-js', get_template_directory_uri() . '/assets/js/tiny-slider.js', array(), VERSION, true );
 	wp_enqueue_script( 'glightbox-js', get_template_directory_uri() . '/assets/js/glightbox.min.js', array(), VERSION, true );
 	wp_enqueue_script( 'main-js', get_template_directory_uri() . '/assets/js/main.js', array(), VERSION, true );
-	wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/assets/js/custom.js', array('jquery'), VERSION, true );
 }
 
 add_action( 'wp_enqueue_scripts', 'jblog_assets' );
 
-//Comment Form Field Bottom
-function jblog_move_comment_field_to_bottom( $fields ) {
-	$comment_field = $fields['comment'];
-	unset( $fields['comment'] );
-	$fields['comment'] = $comment_field;
-	return $fields;
-}
-
-add_filter( 'comment_form_fields', 'jblog_move_comment_field_to_bottom');
 
 //Title Seprator
 function custom_document_title_separator( $sep ) {
 	return '||';
 }
+
 add_filter( 'document_title_separator', 'custom_document_title_separator', 10, 1 );
+
+
+
 

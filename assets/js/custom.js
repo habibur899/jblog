@@ -1,6 +1,6 @@
 ;(function ($) {
     $('#commentform').submit(function () {
-        if ($.trim($("#email").val()) === "" || $.trim($("#author").val()) === "" || $.trim($("#comment").val()) === "") {
+        if ($.trim($("#email").val()) === "" || $.trim($("#author").val()) === "") {
             $(".error-message").fadeIn();
             return false;
         }else {

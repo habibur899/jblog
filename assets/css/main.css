@@ -3220,7 +3220,7 @@ blockquote .shape {
     font-weight: 400;
 }
 
-.post-comments .comments-list li .comment-desc .desc-top .reply-link {
+.post-comments .comments-list li .comment-desc .desc-top .comment-reply-link {
     position: absolute;
     right: 0;
     top: 50%;
@@ -3236,13 +3236,13 @@ blockquote .shape {
     color: #2042e3;
 }
 
-.post-comments .comments-list li .comment-desc .desc-top .reply-link:hover {
+.post-comments .comments-list li .comment-desc .desc-top .comment-reply-link:hover {
     background-color: #2042e3;
     color: #fff;
     border-color: transparent;
 }
 
-.post-comments .comments-list li .comment-desc .desc-top .reply-link i {
+.post-comments .comments-list li .comment-desc .desc-top .comment-reply-link i {
     margin-right: 5px;
 }
 
@@ -3256,7 +3256,7 @@ blockquote .shape {
     margin-left: 130px;
 }
 
-.post-comments .comments-list li:not(:first-child) {
+.post-comments .comments-list li:not(:first-child),.post-comments .comments-list ul:not(:first-child) {
     padding-top: 30px;
     margin-top: 30px;
     border-top: 1px dashed #eee;
@@ -6647,7 +6647,7 @@ ul
         margin-bottom: -15px !important;
     }
 
-    .post-comments .comments-list li .comment-desc .desc-top .reply-link {
+    .post-comments .comments-list li .comment-desc .desc-top .comment-reply-link {
         position: absolute;
         right: 0;
         top: 0;
