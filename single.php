@@ -42,6 +42,7 @@
                                     </li>
                                 </ul>
 								<?php the_content(); ?>
+	                            <?php wp_link_pages(); ?>
                                 <div class="post-tags-media">
                                     <div class="post-tags popular-tag-widget mb-xl-40">
                                         <h5 class="tag-title"><?php esc_html( _e( 'Related Tags', 'jblog' ) ) ?></h5>

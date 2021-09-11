@@ -32,7 +32,7 @@
                                         <div class="error-content">
                                             <h2><?php esc_html_e( 'No Result Found', 'jblog' ); ?></h2>
                                             <div class="button">
-                                                <a href="<?php echo esc_url( site_url() ) ?>"
+                                                <a href="<?php home_url(); ?>"
                                                    class="btn"><?php esc_html_e( 'Go To Home', 'jblog' ); ?></a>
                                             </div>
                                         </div>

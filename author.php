@@ -7,7 +7,7 @@
 				<div class="row">
 					<div class="sidebar mb-3">
 						<div class="widget">
-							<h2><?php esc_html_e( 'Author Name: ', 'jblog' );?><span class="highlight-color"><?php esc_html_e(get_the_author_meta('display_name'))?></span></h2>
+							<h2><?php esc_html_e( 'Author Name: ', 'jblog' );?><span class="highlight-color"><?php esc_html(get_the_author_meta('display_name'))?></span></h2>
 
 						</div>
 					</div>
@@ -20,7 +20,7 @@
 										<div class="error-content">
 											<h2><?php esc_html_e( 'No Result Found', 'jblog' ); ?></h2>
 											<div class="button">
-												<a href="<?php echo esc_url( site_url() ) ?>"
+												<a href="<?php home_url(); ?>"
 												   class="btn"><?php esc_html_e( 'Go To Home', 'jblog' ); ?></a>
 											</div>
 										</div>

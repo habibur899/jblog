@@ -65,6 +65,7 @@ function jblog_register_required_plugins() {
 			'required'  => false,
 		),
 
+
 	);
 
 	/*

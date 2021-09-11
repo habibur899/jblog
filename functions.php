@@ -1,7 +1,5 @@
 <?php
 include_once 'inc/bootstrap-navwalker.php';
-include_once 'inc/svg-support.php';
-include_once 'inc/postview-count.php';
 include_once 'inc/sidebar-register.php';
 include_once 'inc/tgm-config.php';
 include_once 'inc/comment-listing.php';

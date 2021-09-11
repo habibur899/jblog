@@ -8,6 +8,7 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
 <div id="loading-area"></div>
 
 <header class="header other-page">
@@ -16,7 +17,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg">
-                        <a class="navbar-brand logo" href="<?php echo site_url() ?>">
+                        <a class="navbar-brand logo" href="<?php home_url(); ?>">
 							<?php
 							$custom_logo_id = get_theme_mod( 'custom_logo' );
 							$logo           = wp_get_attachment_image_src( $custom_logo_id, 'full' );
@@ -58,23 +59,3 @@
     </div>
 
 </header>
-
-
-<!--<div class="breadcrumbs overlay">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="breadcrumbs-content">
-                    <h1 class="page-title">Blog Grid Sidebar</h1>
-                    <p>Business plan draws on a wide range of knowledge from different business<br> disciplines.
-                        Business draws on a wide range of different business .</p>
-                </div>
-                <ul class="breadcrumb-nav">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li>Blog Grid Sidebar</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>-->

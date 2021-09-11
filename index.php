@@ -6,7 +6,7 @@
             <div class="col-lg-8 col-md-7 col-12">
                 <div class="row">
 					<?php if ( have_posts() ):while ( have_posts() ):the_post(); ?>
-                        <div class="col-lg-6 col-12">
+                        <div class="col-lg-6 col-12 <?php echo esc_html( post_class() ) ?>">
                             <div class="single-news wow fadeInUp" data-wow-delay=".3s">
                                 <div class="image">
 									<?php the_post_thumbnail( 'thumb-image', array( 'class' => 'thumb' ) ); ?>
