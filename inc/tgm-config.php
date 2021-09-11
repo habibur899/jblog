@@ -64,7 +64,12 @@ function jblog_register_required_plugins() {
 			'slug'      => 'mailchimp-for-wp',
 			'required'  => false,
 		),
-
+		array(
+			'name'               => 'Jblog Core', // The plugin name.
+			'slug'               => 'jblog-core', // The plugin slug (typically the folder name).
+			'source'             => get_template_directory_uri() . '/inc/plugins/jblog-core.zip', // The plugin source.
+			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+		),
 
 	);
 
